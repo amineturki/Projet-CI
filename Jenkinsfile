@@ -11,11 +11,11 @@ pipeline {
 			} 
 		}
 
-		stage('Testing pass - 1') {
+	 	/* stage('Testing pass - 1') {
 			steps {
 				sh 'exit 0'
 			}
-		}
+		} */
 		/*	stage('Testing fail - Error Stage') {
 			steps {
 				sh 'exit 1'
