@@ -125,6 +125,11 @@
 			   <plugin>
    <artifactId>maven-deploy-plugin</artifactId>
    <version>2.8.1</version>
+   <configuration>
+                            <arguments>-P!source-artifacts</arguments>
+                            <useReleaseProfile>false</useReleaseProfile>
+                            <goals>-Dmaven.test.skip=true deploy</goals>
+                    </configuration>    
    <executions>
       <execution>
          <id>default-deploy</id>
