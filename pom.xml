@@ -81,10 +81,10 @@
 
 	</dependencies>
 <distributionManagement>
-   <snapshotRepository>
+   <repository>
       <id>deploymentRepo</id>
       <url>http://4.236.128.114:8081/repository/maven-releases/</url>
-   </snapshotRepository>
+   </repository>
 </distributionManagement>
 	<build>
 		<plugins>
