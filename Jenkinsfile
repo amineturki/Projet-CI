@@ -4,13 +4,18 @@ pipeline {
 	agent any
 
 	stages {
+		
+		stage('Junit Test') {
+			steps {
+				sh 'mvn test'
+			}
 
 		stage('Testing pass - 1') {
 			steps {
 				sh 'exit 0'
 			}
 		}
-	/*	stage('Testing fail - Error Stage') {
+		/*	stage('Testing fail - Error Stage') {
 			steps {
 				sh 'exit 1'
 			}
@@ -27,16 +32,16 @@ pipeline {
 				sh "mvn  sonar:sonar -Dsonar.projectKey=projet-ci  -Dsonar.host.url=http://4.236.128.114:9000  -Dsonar.login=sqp_2e031efe1cb6e283102953b33ae4e4cb8018d62c "
 
 			}
-			 post {
-             always {
-              
-	 jacoco execPattern: 'target/jacoco.exec'
-		
-           }    
-        } 
-         
-		}  
+			post {
+				always {
+
+					jacoco execPattern: 'target/jacoco.exec'
+
+				}    
+			} 
 
 		}  
 
-	}
+	}  
+
+}
