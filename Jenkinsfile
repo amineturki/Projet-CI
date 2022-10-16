@@ -43,9 +43,16 @@ pipeline {
 			} 
 
 		}  
+	stage('deploy jar to Nexus ?') {
+       steps {
+         timeout(time: 2, unit: 'DAYS') {
+           input 'Do you want to Approve the jar file Nexus'
+         }
+       }
+     }
 		 stage('Nexus') {
 			steps {
-				//sh 'mvn clean deploy -DskipTests'
+				
 				sh'mvn clean deploy -Dmaven.test.skip=true -Dresume=false'
 			}
 		} 
