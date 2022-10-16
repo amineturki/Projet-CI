@@ -7,7 +7,7 @@ pipeline {
 		
 		stage('Junit Test') {
 			steps {
-				sh 'mvn test'
+				sh 'mvn clean install'
 			} 
 		}
 
