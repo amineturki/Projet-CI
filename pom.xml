@@ -15,7 +15,7 @@
 	<description>Projet pour le module DevOps</description>
 	<properties>
 		<java.version>1.8</java.version>
-		<maven-jar-plugin.version>3.10.0</maven-jar-plugin.version>
+		<maven-jar-plugin.version>3.0.0</maven-jar-plugin.version>
 		
     <!-- JaCoCo Properties -->
     <jacoco.version>0.8.6</jacoco.version>
