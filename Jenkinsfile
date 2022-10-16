@@ -28,6 +28,12 @@ pipeline {
 				archive 'target/*.jar'
 			}
 		}
+		        stage('Git') {
+           steps {
+		echo "Getting project from Git";
+                git "https://github.com/amineturki/Projet-CI.git";
+            }
+	}
 		stage('SonarQube test') {
 			steps {
 				sh "mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=louay"
