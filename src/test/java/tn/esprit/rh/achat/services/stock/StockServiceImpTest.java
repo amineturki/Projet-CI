@@ -1,13 +1,8 @@
-package tn.esprit.spring.services.stock;
-import static org.junit.Assert.assertNull;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+package tn.esprit.rh.achat.services.stock;
 
 import java.util.List;
 
-import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
-import org.junit.jupiter.api.Order;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -16,7 +11,7 @@ import tn.esprit.rh.achat.services.IStockService;
 
 
 @SpringBootTest
-@TestMethodOrder(OrderAnnotation.class)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class StockServiceImpTest {
 
 	@Autowired
@@ -26,7 +21,7 @@ public class StockServiceImpTest {
 	@Order(1)
 	public void testRetrieveALLStocks() {
 		List<Stock> allStocks = stockService.retrieveAllStocks();
-		assertEquals(1,allStocks.size());
+		Assertions.assertEquals(1,allStocks.size());
 	}
 	
 	@Test
@@ -34,21 +29,21 @@ public class StockServiceImpTest {
 	public void testAddStock() {
 		Stock s = new Stock("stock test",10,100);
 		Stock savedStock = stockService.addStock(s);
-		assertEquals(s.getLibelleStock(),savedStock.getLibelleStock());
+		Assertions.assertEquals(s.getLibelleStock(),savedStock.getLibelleStock());
 	}
 	
 	@Test
 	@Order(3)
 	public void testRetrieveStock() {
-		Stock stock =  stockService.retrieveStock(2L);
-		assertEquals(2L,stock.getIdStock().longValue());
+		Stock stock =  stockService.retrieveStock(1L);
+		Assertions.assertEquals(1L,stock.getIdStock().longValue());
 	}
 	
 	@Test
 	@Order(4)
 	public void testDeleteStock() {
 		stockService.deleteStock(1L);
-		assertNull(stockService.retrieveStock(1L));
+		Assertions.assertNull(stockService.retrieveStock(1L));
 	}
 	
 	
