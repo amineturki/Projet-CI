@@ -30,7 +30,7 @@ pipeline {
 		}
 		stage('SonarQube test') {
 			steps {
-				sh "mvn  sonar:sonar -Dsonar.projectKey=projet-ci  -Dsonar.host.url=http://4.236.128.114:9000  -Dsonar.login=sqp_2e031efe1cb6e283102953b33ae4e4cb8018d62c"
+				sh "mvn  sonar:sonar -Dsonar.projectKey=projet-ci  -Dsonar.host.url=http://20.172.244.255:9000  -Dsonar.login=sqp_8e13e986844b5af5ad1a29d7218362c749cef201"
 
 			}
 			post {
