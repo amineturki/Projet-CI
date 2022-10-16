@@ -22,7 +22,7 @@ pipeline {
 			}
 		}  */
 
-		stage('Build Artifact - Maven') {
+		/*stage('Build Artifact - Maven') {
 			steps {
 				sh "mvn clean package -DskipTests=true"
 				archive 'target/*.jar'
@@ -47,7 +47,7 @@ pipeline {
 				//sh 'mvn clean deploy -DskipTests'
 				sh'mvn clean deploy -Dmaven.test.skip=true -Dresume=false'
 			}
-		} 
+		} */
 
 	}  
 
