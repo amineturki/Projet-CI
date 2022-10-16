@@ -4,13 +4,7 @@ pipeline {
 	agent any
 
 	stages {
-		        stage('Checkout Git') {
-           steps {
-		echo 'Pulling.....';
-		git branch : 'louay',
-                url : 'https://github.com/amineturki/Projet-CI.git';
-            }
-	}
+		
 		stage('Junit Test') {
 			steps {
 				sh 'mvn test'
