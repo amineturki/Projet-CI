@@ -3,6 +3,7 @@ package tn.esprit.rh.achat.services.stock;
 import java.util.List;
 
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -11,7 +12,7 @@ import tn.esprit.rh.achat.services.IStockService;
 
 
 @SpringBootTest
-@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+@TestMethodOrder(OrderAnnotation.class)
 public class StockServiceImpTest {
 
 	@Autowired
@@ -21,13 +22,13 @@ public class StockServiceImpTest {
 	@Order(1)
 	public void testRetrieveALLStocks() {
 		List<Stock> allStocks = stockService.retrieveAllStocks();
-		Assertions.assertEquals(1,allStocks.size());
+		Assertions.assertEquals(0,allStocks.size());
 	}
 	
 	@Test
 	@Order(2)
 	public void testAddStock() {
-		Stock s = new Stock("stock test",10,100);
+		Stock s = new Stock("stock test",100,10);
 		Stock savedStock = stockService.addStock(s);
 		Assertions.assertEquals(s.getLibelleStock(),savedStock.getLibelleStock());
 	}
