@@ -31,10 +31,16 @@ pipeline {
 		       
 		stage('SonarQube test') {
 			steps {
-				sh "mvn  sonar:sonar -Dsonar.projectKey=projet-ci  -Dsonar.host.url=http://192.168.33.10:9000  -Dsonar.login=720b534d41f82bf2ad26d6c3f7c88b3280a54552"
+				sh "mvn  sonar:sonar -Dsonar.projectKey=projet-ci  -Dsonar.host.url=http://192.168.33.10:9000  -Dsonar.login=6fd3770c23232ce307ff694b0710fbc7c9b5517d"
 
 			}
+		        post {
+				always {
 
+					jacoco execPattern: 'target/jacoco.exec'
+
+				}    
+			} 
 		}  
 		 stage('Nexus') {
 			steps {
