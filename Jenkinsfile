@@ -8,7 +8,7 @@ pipeline {
 		stage('Junit Test') {
 			steps {
 				sh 'mvn clean install'			} 
-		}
+		  }
 
 	 	/* stage('Testing pass - 1') {
 			steps {
