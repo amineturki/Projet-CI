@@ -7,7 +7,7 @@ pipeline {
 		
 		stage('Junit Test') {
 			steps {
-				sh 'mvn clean install'
+				sh 'mvn test'
 			} 
 		}
 
@@ -30,6 +30,7 @@ pipeline {
 		}
 		stage('SonarQube test') {
 			steps {
+				sh "mvn clean install"
 				sh "mvn  sonar:sonar -Dsonar.projectKey=projet-ci  -Dsonar.host.url=http://20.172.244.255:9000  -Dsonar.login=sqp_8e13e986844b5af5ad1a29d7218362c749cef201"
 
 			}
