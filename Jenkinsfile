@@ -37,12 +37,12 @@ pipeline {
 			
 
 		}  
-		// stage('Nexus') {
-		//	steps {
+		 stage('Nexus') {
+			steps {
 				//sh 'mvn clean deploy -DskipTests'
-			//	sh'mvn clean deploy -Dmaven.test.skip=true -Dresume=false'
-			//}
-		//} 
+				sh'mvn clean deploy -Dmaven.test.skip=true -Dresume=false'
+			}
+		} 
 		
 		
 				
@@ -54,9 +54,9 @@ pipeline {
 					
 						emailext attachLog: true, body: '$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS:Check console output at $BUILD_URL to view the results.', subject: '$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!', to: 'hazem.tahri@esprit.tn'
 				}    
-						//failure {
-						//emailext attachLog: true, body: '$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS:Check console output at $BUILD_URL to view the results.', subject: '$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!', to: 'hazem.tahri@esprit.tn'
-				//} 
+						failure {
+						emailext attachLog: true, body: '$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS:Check console output at $BUILD_URL to view the results.', subject: '$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!', to: 'hazem.tahri@esprit.tn'
+				} 
 				//}
 		}
 
