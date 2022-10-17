@@ -37,12 +37,12 @@ pipeline {
 			
 
 		}  
-		 stage('Nexus') {
-			steps {
+		// stage('Nexus') {
+		//	steps {
 				//sh 'mvn clean deploy -DskipTests'
-				sh'mvn clean deploy -Dmaven.test.skip=true -Dresume=false'
-			}
-		} 
+			//	sh'mvn clean deploy -Dmaven.test.skip=true -Dresume=false'
+			//}
+		//} 
 		stage('Email') {
 			steps {
 		post {
