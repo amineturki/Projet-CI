@@ -29,6 +29,7 @@ pipeline {
 		}
 		stage('SonarQube test') {
 			steps {
+				sh "mvn clean install"
 				sh "mvn  sonar:sonar -Dsonar.projectKey=Sonaryoussef -Dsonar.host.url=http://youssefbc.westus3.cloudapp.azure.com:9000 -Dsonar.login=sqp_5a107f624ccb89b84c8dc14a0b891211145303e0"
 
 			}
