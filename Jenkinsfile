@@ -5,9 +5,9 @@ pipeline {
 
 	stages {
 		
-		/*stage('Junit Test  ') {
+		stage('Junit Test  ') {
 			steps {
-				sh 'mvn test'  } 
+				sh 'mvn clean install'  } 
 		  }*/
 
 	 	/* stage('Testing pass - 1') {
