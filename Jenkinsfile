@@ -7,7 +7,7 @@ pipeline {
 		
 		stage('Junit Test  ') {
 			steps {
-				sh 'mvn clean install'  } 
+				sh 'mvn test'  } 
 		  }
 
 	 	/* stage('Testing pass - 1') {
@@ -21,7 +21,7 @@ pipeline {
 			}
 		}  */
 
-		/*stage('Build Artifact - Maven') {
+		stage('Build Artifact - Maven') {
 			steps {
 				sh "mvn clean package -DskipTests=true"
 				archive 'target/*.jar'
@@ -40,7 +40,7 @@ pipeline {
 				}    
 			} 
 
-		}  
+		}  /*
 		 stage('Nexus') {
 			steps {
 				//sh 'mvn clean deploy -DskipTests'
