@@ -39,5 +39,6 @@ public class Operateur implements Serializable{
 		this.nom = nom2;
 		this.prenom = prenom2;
 		this.password = i;
+	}
 	
 }
