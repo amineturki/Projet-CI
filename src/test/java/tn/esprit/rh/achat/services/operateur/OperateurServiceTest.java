@@ -9,7 +9,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 import tn.esprit.rh.achat.entities.Operateur;
 import tn.esprit.rh.achat.services.IOperateurService;
 
@@ -24,6 +25,26 @@ public class OperateurServiceTest {
 	public void testRetrieveAllOperateurs() {
 	List<Operateur> listoperateurs = ss.retrieveAllOperateurs();
 	Assertions.assertEquals(0, listoperateurs.size());
+	}
+	@Test
+	@Order(2)
+	public void testAddOperateur() {
+		Operateur o = new Operateur("op","op","100");
+		Operateur savedoperateur= ss.addOperateur(o);
+	assertEquals(o.getNom(), savedoperateur.getNom());
+	}
+	@Test
+	@Order(3)
+	public void testRetrieveOperateur() {
+		Operateur op = ss.retrieveOperateur(2L);
+	assertEquals(2L, op.getIdOperateur().longValue());
+	}
+
+	@Test
+	@Order(4)
+	public void testDeleteOperateur() {
+	ss.deleteOperateur(1L);
+	assertNull(ss.retrieveOperateur(1L));
 	}
 
 }
