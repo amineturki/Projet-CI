@@ -1,9 +1,6 @@
 package tn.esprit.rh.achat.test;
 
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 import org.junit.jupiter.api.Assertions;
@@ -14,40 +11,21 @@ import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import tn.esprit.rh.achat.entities.*;
-import tn.esprit.rh.achat.services.*;
+import tn.esprit.rh.achat.entities.Produit;
+import tn.esprit.rh.achat.services.IProduitService;
 
 @SpringBootTest
 @TestMethodOrder(OrderAnnotation.class)
 
-public class FournisseurServiceImpTest {
+public class ProduitServiceImpTest {
 	
 	@Autowired
-	IFournisseurService f;
+	IProduitService us;
 	@Test
 	@Order(1)
-	public void testRetrieveAllFournisseurs() {
-	List<Facture> listF = f.retrieveAllFournisseurs();
-	Assertions.assertEquals(0, listF.size());
+	public void testRetrieveAllProduits() {
+	List<Produit> listproduits = us.retrieveAllProduits();
+	Assertions.assertEquals(0, listproduits.size());
 	}
-	
-	
-	@Test
-	@Order(2)
-	public void testAddFournisseur() {
-	Fournisseur fo = new Facture(2500, llll,libelle ,ORDINAIRE);
-	Fournisseur FournisseurAdded = f.addFournisseur(fo);
-	Assertions.assertEquals(fo.getIdFournisseure(), FournisseurAdded.getIdFournisseur());
-	}
-	
-	
-	@Test
-	@Order(3)
-	public void testRetrieveFournisseur() {
-	Fournisseur FournisseurRetrived = us.Fournisseure(1L);
-	Assertions.assertEquals(1L, FournisseurRetrived.getIdFournisseur());
-	
-	}
-	
 
 }
