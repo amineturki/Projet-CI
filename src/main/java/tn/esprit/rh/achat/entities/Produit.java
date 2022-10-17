@@ -49,7 +49,15 @@ public class Produit implements Serializable {
 	private CategorieProduit categorieProduit;
 	
 
-
+	public Produit(String codeProduit2, String libelleProduit2, int prix2, Date date, Date date2) {
+		// TODO Auto-generated constructor stub
+		this.codeProduit = codeProduit2;
+		this.libelleProduit = libelleProduit2;
+		this.prix = prix2;
+		this.dateCreation = date;
+		this.dateDerniereModification = date2;
+		
+	}
 	
 
 }
