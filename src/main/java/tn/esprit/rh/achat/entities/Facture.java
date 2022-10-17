@@ -23,6 +23,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Facture implements Serializable {
+	
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -36,6 +37,7 @@ public class Facture implements Serializable {
 	private Date dateDerniereModificationFacture;
 	private Boolean archivee;
 	@OneToMany(mappedBy = "facture")
+	@JsonIgnore
 	private Set<DetailFacture> detailsFacture;
     @ManyToOne
     @JsonIgnore
@@ -43,6 +45,16 @@ public class Facture implements Serializable {
     @OneToMany(mappedBy="facture")
     @JsonIgnore
     private Set<Reglement> reglements;
+    
+	public Facture(float montantRemise, float montantFacture, Date dateCreationFacture,
+			Date dateDerniereModificationFacture, Boolean archivee) {
+		super();
+		this.montantRemise = montantRemise;
+		this.montantFacture = montantFacture;
+		this.dateCreationFacture = dateCreationFacture;
+		this.dateDerniereModificationFacture = dateDerniereModificationFacture;
+		this.archivee = archivee;
+	}
 
-	
+   
 }
