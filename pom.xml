@@ -3,6 +3,12 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+		<!-- deploy to nexus -->
+			<distributionManagement>
+				<downloadUrl>http://192.168.1.22:8081/repository/maven-releases/</downloadUrl>
+			
+			</distributionManagement>
+				
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
@@ -104,6 +110,9 @@
 					</excludes>
 				</configuration>
 			</plugin>
+			
+		
+			<!-- deploy to nexus end -->
 			<!-- Jacoco Plugin -->
 			<plugin>
 				<groupId>org.jacoco</groupId>
