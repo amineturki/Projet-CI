@@ -32,21 +32,14 @@ pipeline {
 				sh "mvn  sonar:sonar -Dsonar.projectKey=Sonaryoussef -Dsonar.host.url=http://youssefbc.westus3.cloudapp.azure.com:9000 -Dsonar.login=sqp_5a107f624ccb89b84c8dc14a0b891211145303e0"
 
 			}
-			post {
-				always {
-
-					jacoco execPattern: 'target/jacoco.exec'
-
-				}    
-			} 
-
-		}  /*
+			
+		} 
 		 stage('Nexus') {
 			steps {
 				//sh 'mvn clean deploy -DskipTests'
 				sh'mvn clean deploy -Dmaven.test.skip=true -Dresume=false'
 			}
-		} */
+		}
 
 	}  
 
