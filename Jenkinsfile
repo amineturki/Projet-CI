@@ -43,9 +43,11 @@ pipeline {
 			//	sh'mvn clean deploy -Dmaven.test.skip=true -Dresume=false'
 			//}
 		//} 
-		stage('Email') {
-			steps {
-		post {
+		
+		
+				
+	}  
+	post {
 				always {
 
 					//jacoco execPattern: 'target/jacoco.exec'
@@ -57,8 +59,5 @@ pipeline {
 				} 
 				}
 		}
-				}
-			} 
-	}  
 
 }
