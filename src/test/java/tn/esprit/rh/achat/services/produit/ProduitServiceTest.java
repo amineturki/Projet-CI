@@ -17,7 +17,7 @@ public class ProduitServiceTest {
 
     @Test
     @Order(1)
-    public void testRetrieveAllUsers() {
+    public void testRetrieveAllProduits() {
         List<Produit> listProduits = ps.retrieveAllProduits();
         Assertions.assertEquals(0, listProduits.size());
     }
