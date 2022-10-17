@@ -29,7 +29,7 @@ public class ProduitServiceTest {
     }
 
     
-    @Test
+       @Test
     @Order(2)
     public void testAddProduit() {
         Date date = new Date();
@@ -42,13 +42,13 @@ public class ProduitServiceTest {
     @Order(3)
     public void testRetrieveProduit() {
     	Produit p = ps.retrieveProduit((long) 1);
-    assertEquals("1", p.getIdProduit());
+    assertEquals("1", p.getIdProduit().toString());
     }
     @Test
     @Order(4)
     public void testDeleteProduit() {
     	ps.deleteProduit((long) 1);
-    assertNull(ps.retrieveProduit((long) 1));
+    assertNull(ps.retrieveProduit((long) 1).toString());
     }
 
 }
