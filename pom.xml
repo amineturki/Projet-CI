@@ -16,6 +16,14 @@
 	<properties>
 		<java.version>1.8</java.version>
 		<maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
+		
+    <!-- JaCoCo Properties -->
+    <jacoco.version>0.8.6</jacoco.version>
+    <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
+    <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
+    <sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
+    <sonar.language>java</sonar.language>
+
 	</properties>
 	<dependencies>
 		<dependency>
@@ -66,6 +74,7 @@
         </exclusions>
         <scope>test</scope>
     </dependency>
+		
     <dependency>
         <groupId>junit</groupId>
         <artifactId>junit</artifactId>
@@ -78,12 +87,17 @@
         </exclusions>
         <scope>test</scope>
     </dependency>
+	<dependency>
+    <groupId>org.jacoco</groupId> 
+    <artifactId>jacoco-maven-plugin</artifactId>
+    <version>0.8.6</version>
+</dependency>	
 
 	</dependencies>
 <distributionManagement>
    <repository>
       <id>deploymentRepo</id>
-      <url>http://4.236.128.114:8081/repository/maven-releases/</url>
+      <url>http://localhost:8081/repository/maven-releases/</url>
    </repository>
 </distributionManagement>
 	<build>
@@ -101,33 +115,35 @@
 				</configuration>
 			</plugin>
 			<!--                   Jacoco Plugin                   -->
-			   <plugin>
-			    <groupId>org.jacoco</groupId>
-			    <artifactId>jacoco-maven-plugin</artifactId>
-			    <version>0.8.5</version>
-			    <executions>
-			     <execution>
-			      <goals>
-			       <goal>prepare-agent</goal>
-			      </goals>
-			     </execution>
-			     <execution>
-			      <id>report</id>
-			      <phase>test</phase>
-			      <goals>
-			       <goal>report</goal>
-			      </goals>
-			     </execution>
-			    </executions>
-			   </plugin>
+			<plugin>
+    <groupId>org.jacoco</groupId>
+    <artifactId>jacoco-maven-plugin</artifactId>
+    <version>${jacoco.version}</version>
+    <executions>
+        <execution>
+            <id>jacoco-initialize</id>
+            <goals>
+                <goal>prepare-agent</goal>
+            </goals>
+        </execution>
+        <execution>
+            <id>jacoco-site</id>
+            <phase>package</phase>
+            <goals>
+                <goal>report</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin>
+
 			   			<!--                   nexus Plugin                   -->
 			   
 			   <plugin>
    <artifactId>maven-deploy-plugin</artifactId>
    <version>2.8.1</version>
-      <configuration> 
+      <!--<configuration> 
          <skip>true</skip> 
-      </configuration> 
+      </configuration> --> 
    <executions>
       <execution>
          <id>default-deploy</id>
