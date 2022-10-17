@@ -42,8 +42,8 @@ public class OperateurServiceTest {
 	@Test
 	@Order(4)
 	public void testRetrieveOperateur() {
-		Operateur op = ss.retrieveOperateur(2L);
-	assertEquals(2L, op.getIdOperateur().toString());
+		Operateur op = ss.retrieveOperateur((long) 1);
+	assertEquals("1", op.getIdOperateur().toString());
 	}
 
 	
