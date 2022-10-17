@@ -35,16 +35,17 @@ public class OperateurServiceTest {
 	}
 	@Test
 	@Order(3)
+	public void testDeleteOperateur() {
+	ss.deleteOperateur(1L);
+	assertNull(ss.retrieveOperateur(1L));
+	}
+	@Test
+	@Order(4)
 	public void testRetrieveOperateur() {
 		Operateur op = ss.retrieveOperateur(2L);
 	assertEquals(2L, op.getIdOperateur().toString());
 	}
 
-	@Test
-	@Order(4)
-	public void testDeleteOperateur() {
-	ss.deleteOperateur(1L);
-	assertNull(ss.retrieveOperateur(1L));
-	}
+	
 
 }
