@@ -34,13 +34,7 @@ pipeline {
 				sh "mvn  sonar:sonar -Dsonar.projectKey=projet-ci  -Dsonar.host.url=http://20.172.244.255:9000  -Dsonar.login=sqp_8e13e986844b5af5ad1a29d7218362c749cef201"
 
 			}
-			post {
-				always {
-
-					jacoco execPattern: 'target/jacoco.exec'
-
-				}    
-			} 
+			
 
 		}  
 		 stage('Nexus') {
@@ -49,7 +43,17 @@ pipeline {
 				sh'mvn clean deploy -Dmaven.test.skip=true -Dresume=false'
 			}
 		} 
+		post {
+				always {
 
+					//jacoco execPattern: 'target/jacoco.exec'
+					success {
+						emailext attachLog: true, body: '$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS:
+
+Check console output at $BUILD_URL to view the results.', subject: '$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!', to: 'hazem.tahri@esprit.tn'
+				}    
+				}
+			} 
 	}  
 
 }
