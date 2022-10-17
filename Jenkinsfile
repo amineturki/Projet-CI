@@ -5,10 +5,10 @@ pipeline {
 
 	stages {
 		
-		stage('Junit Test  ') {
+		/*stage('Junit Test  ') {
 			steps {
 				sh 'mvn test'  } 
-		  }
+		  }*/
 
 	 	/* stage('Testing pass - 1') {
 			steps {
