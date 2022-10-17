@@ -48,7 +48,7 @@ public class ProduitServiceTest {
     @Order(4)
     public void testDeleteProduit() {
     	ps.deleteProduit((long) 1);
-    assertNull(ps.retrieveProduit((long) 1).toString());
+    assertNull(ps.retrieveProduit((long) 1));
     }
 
 }
