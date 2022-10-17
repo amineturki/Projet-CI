@@ -23,7 +23,7 @@ public class ProduitServiceTest {
 
     @Test
     @Order(1)
-    public void testRetrieveAllProduits() {
+     void testRetrieveAllProduits() {
         List<Produit> listProduits = ps.retrieveAllProduits();
         Assertions.assertEquals(0, listProduits.size());
     }
@@ -31,7 +31,7 @@ public class ProduitServiceTest {
     
        @Test
     @Order(2)
-    public void testAddProduit() {
+     void testAddProduit() {
         Date date = new Date();
         Produit p = new Produit("ss","ss",100,date,date);
     	Produit savedStock= ps.addProduit(p);
@@ -40,13 +40,13 @@ public class ProduitServiceTest {
     
     @Test
     @Order(3)
-    public void testRetrieveProduit() {
+     void testRetrieveProduit() {
     	Produit p = ps.retrieveProduit((long) 1);
     assertEquals("1", p.getIdProduit().toString());
     }
     @Test
     @Order(4)
-    public void testDeleteProduit() {
+     void testDeleteProduit() {
     	ps.deleteProduit((long) 1);
     assertNull(ps.retrieveProduit((long) 1));
     }
