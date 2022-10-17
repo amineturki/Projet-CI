@@ -15,7 +15,7 @@ import tn.esprit.rh.achat.services.IOperateurService;
 
 @SpringBootTest
 @TestMethodOrder(OrderAnnotation.class)
-public class OperateurServiceImpTest {
+public class OperateurServiceTest {
 	
 	@Autowired
 	IOperateurService ss;
