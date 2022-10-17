@@ -19,7 +19,7 @@ pipeline {
 		}
 		stage('SonarQube test') {
 			steps {
-				sh "mvn  sonar:sonar -Dsonar.projectKey=projet-ci  -Dsonar.host.url=http://192.168.1.10:9000  -Dsonar.login=sonar "
+				sh "mvn  sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar "
 
 			}
 			post {
