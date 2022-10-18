@@ -57,19 +57,19 @@ pipeline {
          }
        }
      }
-		 stage('Nexus') {
-			steps {
-				
+	stage('Nexus') {
+			steps {				
 				sh'mvn clean deploy -Dmaven.test.skip=true -Dresume=false'
-			}
-		} 
+			        }
+	                } 
+		
 	}  
 		post {
 				success {
 
 					
 				}    
-						failure {
+			       failure {
 						
 				
 		                }
