@@ -1,3 +1,4 @@
+@Library('slack') _
 
 pipeline {
 
@@ -62,7 +63,17 @@ pipeline {
 				sh'mvn clean deploy -Dmaven.test.skip=true -Dresume=false'
 			}
 		} 
-
 	}  
+		post {
+				success {
+
+					
+				}    
+						failure {
+						
+				
+		                }
+		}
+
 
 }
