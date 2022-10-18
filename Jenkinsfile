@@ -22,13 +22,6 @@ pipeline {
 				sh "mvn clean install"
 				sh "mvn verify sonar:sonar -Dsonar.projectKey=projet-ci  -Dsonar.host.url=http://192.168.1.10:9000 -Dsonar.login=admin -Dsonar.password=sonar "
 
-			}
-			post {
-				always {
-
-					jacoco execPattern: 'target/jacoco.exec'
-
-				}    
 			} 
 
 		}  
