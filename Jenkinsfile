@@ -5,7 +5,7 @@ pipeline {
 
 	stages {
 		
-		stage('Git') {
+		stage('git') {
             steps {
                
                 git branch: 'hazem', credentialsId: 'git', url: 'https://github.com/amineturki/Projet-CI.git'            }
