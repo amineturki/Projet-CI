@@ -97,7 +97,7 @@
 <distributionManagement>
    <repository>
       <id>deploymentRepo</id>
-      <url>http://20.172.244.255:8081/repository/maven-releases/</url>
+      <url>http://localhost:8081/repository/maven-releases/</url>
    </repository>
 </distributionManagement>
 	<build>
