@@ -5,6 +5,12 @@ pipeline {
 
 	stages {
 		
+		stage('Git') {
+            steps {
+                echo 'Pulliing ...';
+                git branch: 'hazem', credentialsId: 'git', url: 'https://github.com/amineturki/Projet-CI.git'            }
+        }
+		
 		stage('Junit Test') {
 			steps {
 				sh 'mvn test'
