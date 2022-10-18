@@ -6,7 +6,7 @@ pipeline {
 
 	stages {
 		
-		stage('Git') {
+		stage('Git pull') {
             steps {
                 echo 'pulling Main Project from git ...';
                 git branch: 'amine', credentialsId: 'git', url: 'https://github.com/amineturki/Projet-CI.git'            }
