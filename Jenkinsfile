@@ -67,10 +67,10 @@ pipeline {
 		post {
 				success {
 
-					
+					echo "passed"
 				}    
 			       failure {
-						
+				       echo "failed"
 				
 		                }
 		}
