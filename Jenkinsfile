@@ -12,11 +12,11 @@ pipeline {
                 git branch: 'amine', credentialsId: 'git', url: 'https://github.com/amineturki/Projet-CI.git'            }
         }
 		
-		stage('Junit Test') {
+		/* stage('Junit Test') {
 			steps {
 				sh 'mvn test'
 			} 
-		}
+		} */
 
 	 	/* stage('Testing pass - 1') {
 			steps {
