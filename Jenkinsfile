@@ -26,7 +26,7 @@ pipeline {
                 stage('Docker Build and Push') {
                    steps {
                             sh 'printenv'
-                            sh 'sudo docker build -t spring-app' 
+                            sh 'sudo docker build -t spring-app . ' 
                             sh 'docker push youssef1998/youssefrepo:spring-app'
                            }
                       
