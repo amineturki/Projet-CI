@@ -23,6 +23,17 @@ pipeline {
 			}
 			
 		} 
+		
+		
+     stage('Docker Build and Push') {
+       steps {
+         withDockerRegistry([credentialsId: "docker-hub", url: ""]) {
+           sh 'printenv'
+           sh 'sudo docker build -t youssef1998/spring-app:""$GIT_COMMIT"" .'
+           sh 'docker push youssef1998/spring-app:""$GIT_COMMIT""'
+         }
+       }
+     }
 		 /*stage('Nexus') {
 			steps {
 				//sh 'mvn clean deploy -DskipTests'
