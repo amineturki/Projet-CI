@@ -39,7 +39,7 @@ pipeline {
 		 } 
 		  stage('Docker Build and Push') {
                        steps {
-                               withDockerRegistry([credentialsId: "docker-hub", url: "https://hub.docker.com/"]) {
+                               withDockerRegistry([credentialsId: "docker-hub", url: ""]) {
          			  sh 'printenv'
         			  sh 'docker build -t louay123/louaymed .'
 	 			  sh 'docker tag louay123/louaymed louay123/louaymed:latest'
