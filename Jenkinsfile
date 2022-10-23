@@ -5,11 +5,6 @@ pipeline {
 
 	stages {
 		
-		stage('Junit Test') {
-			steps {
-				sh 'mvn test'
-			} 
-		}
 
 		stage('Build Artifact - Maven') {
 			steps {
@@ -17,14 +12,6 @@ pipeline {
 				archive 'target/*.jar'
 			}
 		}
-		stage('SonarQube test') {
-			steps {
-				sh "mvn clean install"
-				sh "mvn verify sonar:sonar -Dsonar.projectKey=projet-ci  -Dsonar.host.url=http://192.168.1.10:9000 -Dsonar.login=admin -Dsonar.password=sonar "
-
-			} 
-
-		}  
 		 stage('Nexus') {
 			steps {
 				//sh 'mvn clean deploy -DskipTests'
