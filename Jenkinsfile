@@ -31,15 +31,10 @@ pipeline {
            sh 'printenv'
            sh 'sudo docker build -t spring-app' 
            sh 'docker push youssef1998/youssefrepo:spring-app'
-         }
-       }
-     }
-		 /*stage('Nexus') {
-			steps {
-				//sh 'mvn clean deploy -DskipTests'
-				sh'mvn clean deploy -Dmaven.test.skip=true -Dresume=false'
-			}
-		}*/
+                           }
+                      }
+                  }
+		 
 			
 
 	}  
