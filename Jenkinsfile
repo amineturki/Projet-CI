@@ -27,8 +27,8 @@ pipeline {
                    steps {
                             sh 'printenv'
 			    sh 'docker pull youssef1998/youssefrepo'
-                            sh 'sudo docker build -t youssef1998/youssefrepo . ' 
-                            sh 'sudo docker push youssef1998/youssefrepo'
+                            sh 'sudo docker build -t youssef1998/youssefrepo:latest . ' 
+                            sh 'sudo docker push youssef1998/youssefrepo:latest'
                            }
                       
                   }
