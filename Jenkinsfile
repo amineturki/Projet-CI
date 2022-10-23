@@ -35,7 +35,7 @@ pipeline {
 				archive 'target/*.jar'
 			}
 		}
-		stage('SonarQube Test') {
+	/*	stage('SonarQube Test') {
 			steps {
 				sh"mvn clean install"
 				sh "mvn  sonar:sonar -Dsonar.projectKey=projet-ci  -Dsonar.host.url=http://4.236.128.114:9000  -Dsonar.login=sqp_2e031efe1cb6e283102953b33ae4e4cb8018d62c"
@@ -56,14 +56,25 @@ pipeline {
            input 'Do you want to Approve the jar file Nexus'
          }
        }
-     }
+     }   
 	stage('Nexus') {
 			steps {				
 				sh'mvn clean deploy -Dmaven.test.skip=true -Dresume=false'
 			        }
 	                } 
 		
-	}  
+	}  */
+		
+		        stage('Docker Build and Push') {
+       steps {
+         withDockerRegistry([credentialsId: "docker-hub", url: ""]) {
+           sh 'printenv'
+           sh 'sudo docker build -t amineturki/ci:""$GIT_COMMIT"" .'
+           sh 'docker push amineturki/ci:""$GIT_COMMIT""'
+         }
+       }
+     }
+		
 		post {
 				success {
 
