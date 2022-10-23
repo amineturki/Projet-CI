@@ -29,8 +29,8 @@ pipeline {
        steps {
          withDockerRegistry([credentialsId: "docker-hub", url: ""]) {
            sh 'printenv'
-           sh 'sudo docker build -t youssef1998/spring-app:""$GIT_COMMIT"" .'
-           sh 'docker push youssef1998/spring-app:""$GIT_COMMIT""'
+           sh 'sudo docker build -t spring-app' 
+           sh 'docker push youssef1998/youssefrepo:spring-app'
          }
        }
      }
