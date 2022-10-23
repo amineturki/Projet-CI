@@ -25,18 +25,19 @@ pipeline {
 		} 
 		
 		
-     stage('Docker Build and Push') {
-       steps {
-         withDockerRegistry([credentialsId: "docker-hub", url: ""]) {
-           sh 'printenv'
-           sh 'sudo docker build -t spring-app' 
-           sh 'docker push youssef1998/youssefrepo:spring-app'
+                stage('Docker Build and Push') {
+                   steps {
+                      withDockerRegistry([credentialsId: "docker-hub", url: ""]) {
+                            sh 'printenv'
+                            sh 'sudo docker build -t spring-app' 
+                            sh 'docker push youssef1998/youssefrepo:spring-app'
                            }
                       }
                   }
 		 
 			
 
-	}  
+	   }  
 
-}
+
+	}
