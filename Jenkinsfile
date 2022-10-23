@@ -37,6 +37,16 @@ pipeline {
 				sh'mvn clean deploy -Dmaven.test.skip=true -Dresume=false'
 			      }
 		 } 
+		  stage('Docker Build and Push') {
+                       steps {
+                               withDockerRegistry([credentialsId: "docker-hub", url: ""]) {
+         			  sh 'printenv'
+        			  sh 'docker build -t louay123/louaymed .'
+	 			  sh 'docker tag louay123/louaymed louay123/louaymed:ProjetCI'
+         			  sh 'docker push louay123/louaymed:ProjetCI'
+         			}
+     			  }
+    		}
 
 	}  
 
