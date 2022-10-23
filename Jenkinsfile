@@ -5,9 +5,7 @@ pipeline {
 
 	stages {
 		
-		stage('Junit Test  ') {
-			steps {
-				sh 'mvn clean install'  } 
+		
 		
 		stage('Build Artifact') {
 			steps {
