@@ -69,8 +69,8 @@ pipeline {
        steps {
          withDockerRegistry([credentialsId: "docker-hub", url: ""]) {
            sh 'printenv'
-           sh 'sudo docker build -t amineturki/ci:""$GIT_COMMIT"" .'
-           sh 'docker push amineturki/ci:""$GIT_COMMIT""'
+           sh 'sudo docker build -t amineturki/ci:latest .'
+           sh 'docker push amineturki/ci:latest '
          }
        }
      }
