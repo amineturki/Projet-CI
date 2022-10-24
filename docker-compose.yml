@@ -12,7 +12,7 @@ services:
   environment:
     - MYSQL_ROOT_PASSWORD=root
     - MYSQL_DATABASE=achatdb
-    - MYSQL_PASSWORD=seifE$$12
+    - MYSQL_PASSWORD=root
   ports:
     - "33061:33061"
  spring_app:
