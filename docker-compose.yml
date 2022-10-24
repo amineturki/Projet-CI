@@ -13,6 +13,6 @@ services:
     - MYSQL_ROOT_PASSWORD=root
     - MYSQL_DATABASE=achatdb
     - MYSQL_USER=root
-    - MYSQL_PASSWORD=seifE$12
+    - MYSQL_PASSWORD=root
   ports:
     - "33061:3306"
