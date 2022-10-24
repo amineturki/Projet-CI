@@ -2,11 +2,14 @@ version: "3.9"
 
  services:
   mysqldb:
-   container_name: mysqldb
-   image: mysql:8
-   restart: unless-stopped
-   environment:
-     MYSQL_ROOT_PASSWORD: root
+    image: mysql:8.0.28
+    environment:
+      MYSQL_DATABASE: 'achat'
+      MYSQL_ROOT_PASSWORD: 'seifE$12'
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
    volumes:
     - /home/mysql/data:/var/lib/mysql
 
