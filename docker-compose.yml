@@ -5,7 +5,7 @@ services:
   ci-app-front:
     build:
       context: .
-    container_name: hazem-angular
+    container_name: ci-angular
     image: hazemtahri/ci-front:latest
     ports:
       - "8888:80"
@@ -13,7 +13,7 @@ services:
       - ci-network
       
   ci-db:
-    container_name: hazem-db
+    container_name: ci-db
     image: mysql:8.0
     networks:
       - ci-network
