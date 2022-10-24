@@ -5,7 +5,7 @@ volumes:
 services:
  mysql:
   image: mysql:8
-  container_name: mysql
+  container_name: mysqldb
   volumes:
     - dbdata:/var/lib/mysql
   restart: unless-stopped
@@ -16,3 +16,11 @@ services:
     - MYSQL_PASSWORD=seifE$$12
   ports:
     - "33061:3306"
+spring_app:
+   image: seifeddin/achatproject
+   container_name: achatbackend
+   restart: on-failure
+   ports:
+    - 9090:8080
+   depends_on:
+     - mysqldb
