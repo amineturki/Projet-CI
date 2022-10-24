@@ -38,8 +38,8 @@ pipeline {
        steps {
          withDockerRegistry([credentialsId: "docker-hubb", url: ""]) {
            sh 'printenv'
-           sh 'sudo docker build -t hazemtahri/ci-front:latest .'
-           sh 'docker push hazemtahri/ci-front:latest '
+           sh 'sudo docker build -t hazemtahri/spring-ci:latest .'
+           sh 'docker push hazemtahri/spring-ci:latest '
          }
        }
      }
