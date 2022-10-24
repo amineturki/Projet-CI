@@ -20,4 +20,4 @@ services:
    environment:
     - spring.datasource.url=jdbc:mysql://mysqldb:3306/achatdb?allowPublicKeyRetrieval=true&useSSL=false
    ports:
-    - 9090:9090
+    - 8089:8089
