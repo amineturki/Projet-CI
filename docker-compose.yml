@@ -8,7 +8,7 @@ services:
   container_name: mysqldb
   volumes:
     - dbdata:/var/lib/mysql
-  restart: unless-stopped
+  restart: on-failure
   environment:
     - MYSQL_ROOT_PASSWORD=root
     - MYSQL_DATABASE=achatdb
