@@ -4,11 +4,11 @@ pipeline {
 
 	stages {
 		
-		stage('Junit + Mockito Test') {
+		/*stage('Junit + Mockito Test') {
 			steps {
 				sh 'mvn test'
 			      } 
-		}
+		}*/
 		stage('Build Artifact - Maven') {
 			steps {
 				sh "mvn clean package -DskipTests=true"
@@ -16,7 +16,7 @@ pipeline {
 			      }
 		}
 		       
-		stage('SonarQube + JacOcO Analysis') {
+		/*stage('SonarQube + JacOcO Analysis') {
 			steps {
 				sh "mvn  sonar:sonar -Dsonar.projectKey=projet-ci  -Dsonar.host.url=http://192.168.33.10:9000  -Dsonar.login=faf5060f1fdac026b36edab0e340e8261b1a07cf"
 
@@ -35,7 +35,7 @@ pipeline {
 				//sh 'mvn clean deploy -DskipTests'
 				sh'mvn clean deploy -Dmaven.test.skip=true -Dresume=false'
 			      }
-		 } 
+		 } */
 		  stage('Docker Build and Push') {
                        steps {
                                withDockerRegistry([credentialsId: "docker-hub", url: ""]) {
@@ -46,7 +46,28 @@ pipeline {
          			}
      			  }
     		}
-
+		 stage('Docker compose') {
+      		      steps {
+         parallel(
+           "Docker compose": {
+               sh 'docker-compose up '
+           },
+           "Delete running containers": {
+		       sh 'sleep 1m '
+               sh 'docker rm -f ci-spring ci-db ci-angular '
+           }
+         )
+       }
+     }
 	}  
+			post {
+				success {
 
+					echo "passed"
+				}    
+			       failure {
+				       echo "failed"
+				
+		                }
+		}
 }
