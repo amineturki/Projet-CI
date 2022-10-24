@@ -1,5 +1,17 @@
 version: '3.7'
 services:
+
+  
+  ci-app-front:
+    build:
+      context: .
+    container_name: ci-angular
+    image: amineturki/angular-ci:vamine
+    ports:
+      - "8888:80"
+    networks:
+      - ci-network
+      
   ci-db:
     container_name: ci-db
     image: mysql:8.0
@@ -34,18 +46,6 @@ services:
       - MYSQL_DATABASE=achatdb
       - MYSQL_PORT=3306
       
-  ci-app-front:
-    build:
-      context: .
-    container_name: ci-angular
-    image: amineturki/angular-ci:latest
-    ports:
-      - "4200:4200"
-    networks:
-      - ci-network
-    
-
-        
 
 networks:
   ci-network:
