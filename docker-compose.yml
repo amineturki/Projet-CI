@@ -4,7 +4,7 @@ version: "3.9"
   mysqldb:
     image: mysql:8.0.28
     environment:
-      MYSQL_DATABASE: 'achat'
+      MYSQL_DATABASE: 'achatdb'
       MYSQL_ROOT_PASSWORD: 'seifE$12'
     ports:
       - '3306:3306'
