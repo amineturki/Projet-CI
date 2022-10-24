@@ -79,6 +79,8 @@ pipeline {
 			 stage('Docker compose') {
 			steps {
 				sh 'docker-compose up '
+				sh 'sleep 2m'
+				sh 'docker rm -f ci-spring ci-db ci-angular '
 			      }
 		          } 
 		
