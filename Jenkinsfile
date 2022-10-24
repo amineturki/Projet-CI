@@ -97,7 +97,7 @@ pipeline {
                sh 'docker-compose up '
            },
            "Delete running containers": {
-		       sh 'sleep 1m '
+		       sh 'sleep 2m '
                sh 'docker rm -f ci-spring ci-db ci-angular '
            }
          )
