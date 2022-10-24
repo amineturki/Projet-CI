@@ -12,7 +12,6 @@ services:
   environment:
     - MYSQL_ROOT_PASSWORD=root
     - MYSQL_DATABASE=achatdb
-    - MYSQL_USER=root
     - MYSQL_PASSWORD=seifE$$12
   ports:
     - "33061:33061"
