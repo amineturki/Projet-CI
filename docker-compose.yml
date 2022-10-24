@@ -14,7 +14,7 @@ services:
     - MYSQL_DATABASE=achatdb
     - MYSQL_PASSWORD=root
   ports:
-    - "33061:33061"
+    - "33061:3306"
   expose:
    - "33061"
  spring_app:
