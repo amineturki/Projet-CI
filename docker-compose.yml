@@ -15,10 +15,10 @@ services:
     - MYSQL_USER=root
     - MYSQL_PASSWORD=seifE$$12
   ports:
-    - "33061:3306"
+    - "33061:33061"
  spring_app:
    image: seifeddin/achatproject
    container_name: achatbackend
    restart: on-failure
    ports:
-    - 9090:8080
+    - 9090:9090
