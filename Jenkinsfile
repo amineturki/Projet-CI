@@ -27,6 +27,7 @@ pipeline {
                    steps {
                             sh 'printenv'
                             sh 'sudo docker build -t springapp . '
+			    sh 'docker login -u "youssef1998" -p "123456789" docker.io'
 			    sh 'sudo docker tag springapp  youssef1998/springapp'
                             sh 'sudo docker push youssef1998/springapp'
                            }
