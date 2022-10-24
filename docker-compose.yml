@@ -13,10 +13,6 @@ services:
     - MYSQL_ROOT_PASSWORD=root
     - MYSQL_DATABASE=achatdb
     - MYSQL_PASSWORD=root
-  ports:
-    - "33061:3306"
-  expose:
-   - "33061"
  spring_app:
    image: seifeddin/achatproject
    container_name: achatbackend
