@@ -1,14 +1,25 @@
-version: "3.5"
+version: '3.4'
 services:
-    mysql:
-        image: mysql:8
-        ports:
-            - 3306:3306
-        environment:
-            MYSQL_ROOT_PASSWORD: seifE$12
-            MYSQL_USER: seif
-            MYSQL_PASSWORD: seifE$12
-            MYSQL_DATABASE: achatdb
-        volumes:
-            - /home/mysql/data:/var/lib/mysql
-            - db_data:/var/lib/mysql
+  super-app-db:
+    image: mysql:8.0.28
+    container_name: mysqldb
+    environment:
+      - MYSQL_DATABASE: 'achatdb'
+      - MYSQL_USER: seif
+      - MYSQL_PASSWORD: seifE$12
+      - MYSQL_ROOT_PASSWORD: 'root
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    volumes:
+      - /home/mysql/data:/var/lib/mysql
+
+  spring_app:
+   image: seifeddin/achatproject
+   container_name: achatbackend
+   restart: on-failure
+   ports:
+    - 9090:8080
+   depends_on:
+     - mysqldb
