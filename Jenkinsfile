@@ -30,8 +30,8 @@ pipeline {
 			    sh 'docker login -u "youssef1998" -p "123456789" docker.io'
 			  
         			
-	 			  sh 'docker tag springapp youssef1998/youssefrepo:latest'
-         			  sh 'docker push youssef1998/youssefrepo:latest'
+	 			  sh 'docker tag springapp youssef1998/youssefrepo:newversion'
+         			  sh 'docker push youssef1998/youssefrepo:newversion'
                            }
                       
                   }
