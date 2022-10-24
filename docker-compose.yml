@@ -6,7 +6,7 @@ services:
     build:
       context: .
     container_name: ci-angular
-    image: amineturki/angular-ci:vamine
+    image: amineturki/angular-ci:vamine2
     ports:
       - "8888:80"
     networks:
