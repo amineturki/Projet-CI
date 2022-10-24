@@ -6,7 +6,7 @@ services:
     environment:
       - MYSQL_DATABASE: 'achatdb'
       - MYSQL_USER: seif
-      - MYSQL_PASSWORD: seifE$12
+      - MYSQL_PASSWORD: root
       - MYSQL_ROOT_PASSWORD: root
     ports:
       - '3306:3306'
