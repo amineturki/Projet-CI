@@ -154,7 +154,7 @@
 			</plugin>
 
 		</plugins>
-		<finalName>achat-1.0.jar</finalName>
+		<finalName>achat-1.0</finalName>
 	</build>
 
 </project>
