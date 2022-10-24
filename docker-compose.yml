@@ -1,17 +1,18 @@
-version: '3.6'
+version: '2'
+volumes:
+ dbdata:
+
 services:
-  super-app-db:
-    image: 'mysql:8.0.28'
-    container_name: mysqldb
-    ports:
-      - '3306:3306'
-    expose:
-      - '3306'
-    volumes:
-      - '/home/mysql/data:/var/lib/mysql'
-  spring_app:
-    image: seifeddin/achatproject
-    container_name: achatbackend
-    restart: on-failure
-    ports:
-      - '9090:8080'
+ mysql:
+  image: mysql:8
+  container_name: mysql
+  volumes:
+    - dbdata:/var/lib/mysql
+  restart: always
+  environment:
+    - MYSQL_ROOT_PASSWORD=root
+    - MYSQL_DATABASE=achatdb
+    - MYSQL_USER=root
+    - MYSQL_PASSWORD=seifE$12
+  ports:
+    - "33061:3306"
