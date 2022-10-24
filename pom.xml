@@ -154,7 +154,7 @@
 			</plugin>
 
 		</plugins>
-		<fileName>spring-achat</fileName>
+		<finalName>spring-achat</finalName>
 	</build>
 
 </project>
