@@ -11,7 +11,7 @@ pipeline {
                 git branch: 'hazem', credentialsId: 'git', url: 'https://github.com/amineturki/Projet-CI.git'            }
         }
 		
-		stage('Junit Test') {
+		/*stage('Junit Test') {
 			steps {
 				sh 'mvn test'
 			} 
@@ -25,7 +25,7 @@ pipeline {
 			}
 			
 
-		} 
+		} */
 
 		stage('Maven Build') {
 			steps {
@@ -34,7 +34,16 @@ pipeline {
 			}
 		}
 	 
-		 stage('Nexus Deploy JAR') {
+		 stage('Docker Build and Push') {
+       steps {
+         withDockerRegistry([credentialsId: "docker-hubb", url: ""]) {
+           sh 'printenv'
+           sh 'sudo docker build -t hazemtahri/ci-front:latest .'
+           sh 'docker push hazemtahri/ci-front:latest '
+         }
+       }
+     }
+		/* stage('Nexus Deploy JAR') {
 			steps {
 				
 				sh'mvn clean deploy -Dmaven.test.skip=true -Dresume=false'
@@ -55,6 +64,6 @@ pipeline {
 						emailext attachLog: true, body: '$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS:Check console output at $BUILD_URL to view the results.', subject: '$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!', to: 'hazem.tahri@esprit.tn'
 				} 
 				//}
-		}
+		}*/
 
 }
