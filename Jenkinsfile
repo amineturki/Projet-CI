@@ -76,14 +76,20 @@ pipeline {
      }
 		
 		
-			 stage('Docker compose') {
-			steps {
-				sh 'docker-compose up '
-	                        sleep(time: 20, unit: "SECONDS")
-
-				sh 'docker rm -f ci-spring ci-db ci-angular '
-			      }
-		          } 
+		 stage('Docker compose') {
+       steps {
+         parallel(
+           "Docker compose": {
+               sh 'docker-compose up '
+           },
+           "Delete running containers": {
+		       sh 'sleep 1m '
+               sh 'docker rm -f ci-spring ci-db ci-angular '
+           }
+         )
+       }
+     }
+	 
 		
 	}
 		
