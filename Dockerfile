@@ -1,4 +1,4 @@
 FROM openjdk:8
 EXPOSE 8080
-ADD target/spring-achat.jar spring-achat.jar
-ENTRYPOINT ["java","-jar","/spring-achat.jar"]
+ADD target/achat-1.0.jar achat-1.0.jar
+ENTRYPOINT ["java","-jar","/achat-1.0.jar"]
