@@ -32,7 +32,7 @@ services:
     build:
       context: .
     container_name: ci-spring
-    image: youssef1998/youssefrepo2:newversion
+    image: youssef1998/youssefrepo:newversion
     ports:
       - "8089:8089"
     networks:
