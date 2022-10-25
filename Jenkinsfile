@@ -20,7 +20,7 @@ pipeline {
 		}   */
 		
 
-			        stage('Docker Build and Push') {
+	/*		        stage('Docker Build and Push') {
        steps {
          withDockerRegistry([credentialsId: "docker-hub", url: ""]) {
            sh 'printenv'
@@ -28,7 +28,7 @@ pipeline {
            sh 'docker push motazmezrani/ci:latest '
          }
        }
-     }
+     }		*/
 		
 		
 		 stage('Docker compose') {
