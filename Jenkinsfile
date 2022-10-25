@@ -43,6 +43,11 @@ pipeline {
          }
        }
      }
+		 stage('Vulnerability Scan - Docker Image') {
+             steps {
+		      sh "bash trivy-k8s-scan.sh"
+          }
+       )
 		 stage('Docker compose') {
        steps {
          parallel(
@@ -56,6 +61,7 @@ pipeline {
          )
        }
      }
+		
 		/* stage('Nexus Deploy JAR') {
 			steps {
 				
