@@ -45,9 +45,11 @@ pipeline {
      }
 		 stage('Vulnerability Scan - Docker Image') {
              steps {
+		      withDockerRegistry([credentialsId: "docker-hubb", url: ""]) {
 		      sh "bash trivy-k8s-scan.sh"
           }
 		 }
+			 }
 		 stage('Docker compose') {
        steps {
          parallel(
