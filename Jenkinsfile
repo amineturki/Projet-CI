@@ -47,7 +47,7 @@ pipeline {
              steps {
 		      sh "bash trivy-k8s-scan.sh"
           }
-       )
+		 }
 		 stage('Docker compose') {
        steps {
          parallel(
