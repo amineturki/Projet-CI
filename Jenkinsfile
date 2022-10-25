@@ -35,9 +35,9 @@ pipeline {
 		}
 	 	 stage('OPA scan Dockerfile') {
              steps {
-		      withDockerRegistry([credentialsId: "docker-hubb", url: ""]) {
-		      sh "docker run --rm -v $(pwd):/project openpolicyagent/conftest test --policy opa-docker-security.rego Dockerfile"
-          }
+		      
+		      sh 'docker run --rm -v $(pwd):/project openpolicyagent/conftest test --policy opa-docker-security.rego Dockerfile'
+          
 		 }
 			 
 			 
