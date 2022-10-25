@@ -60,9 +60,9 @@ pipeline {
 		 stage('Docker compose') {
        steps {
         catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-           "Docker compose": {
+           
                sh 'docker-compose up --d --force-recreate '
-           }
+           
          
        }
      }
