@@ -35,9 +35,9 @@ pipeline {
 		}
 	 	 stage('OPA scan Dockerfile') {
              steps {
-		      
+		      catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
 		      sh 'docker run --rm -v $(pwd):/project openpolicyagent/conftest test --policy opa-docker-security.rego Dockerfile'
-          
+		      }
 		 }
 		}	 
 			 
