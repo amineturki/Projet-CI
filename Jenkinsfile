@@ -112,7 +112,7 @@ pipeline {
 			  always {
            
 	       dependencyCheckPublisher pattern: 'target/dependency-check-report.xml'
-	       publishHTML([allowMissing: false, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'owasp-zap-report', reportFiles: 'zap_report.html', reportName: 'Owasp zap HTML Report', reportTitles: 'Owasp zap HTML Report', useWrapperFileDirectly: true])
+	       //publishHTML([allowMissing: false, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'owasp-zap-report', reportFiles: 'zap_report.html', reportName: 'Owasp zap HTML Report', reportTitles: 'Owasp zap HTML Report', useWrapperFileDirectly: true])
 	      
 		  //   sendNotification currentBuild.result
            }
