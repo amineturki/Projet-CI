@@ -6,7 +6,7 @@ services:
     build:
       context: .
     container_name: ci-angular
-    image: motazmezrani/angular-ci:latest
+    image: motazmezrani/angular-ci:motaz
     ports:
       - "8888:80"
     networks:
