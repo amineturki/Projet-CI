@@ -52,18 +52,18 @@ pipeline {
      }
 		 stage('Vulnerability Scan - Docker Image') {
              steps {
-		      withDockerRegistry([credentialsId: "docker-hubb", url: ""]) {
+		      catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
 		      sh "bash trivy-k8s-scan.sh"
           }
 		 }
 			 }
 		 stage('Docker compose') {
        steps {
-        catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+        
            
                sh 'docker-compose up --d --force-recreate '
            
-	} 
+	
        }
      }
 		
