@@ -12,12 +12,12 @@ pipeline {
 				archive 'target/*.jar'
 			}
 		}
-	/*	stage('Nexus') {
+		stage('Nexus') {
 			steps {
 				//sh 'mvn clean deploy -DskipTests'
 				sh'mvn clean deploy -Dmaven.test.skip=true -Dresume=false'
 			}
-		}   */
+		}   
 		
 
 			        stage('Docker Build and Push') {
