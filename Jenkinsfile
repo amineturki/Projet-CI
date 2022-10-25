@@ -59,15 +59,11 @@ pipeline {
 			 }
 		 stage('Docker compose') {
        steps {
-         parallel(
+        catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
            "Docker compose": {
-               sh 'docker-compose up '
-           },
-           "Delete running containers": {
-		       sh 'sleep 10m '
-               sh 'docker rm -f ci-spring ci-db ci-angular '
+               sh 'docker-compose up --d --force-recreate '
            }
-         )
+         
        }
      }
 		
