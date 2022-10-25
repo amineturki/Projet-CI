@@ -6,7 +6,7 @@ services:
     build:
       context: .
     container_name: ci-angular
-    image: hazemtahri/ci-front:latest
+    image: youssef1998/youssefrepo2:latest
     ports:
       - "8888:80"
     networks:
@@ -32,7 +32,7 @@ services:
     build:
       context: .
     container_name: ci-spring
-    image: hazemtahri/spring-ci:latest
+    image: youssef1998/youssefrepo2:newversion
     ports:
       - "8089:8089"
     networks:
