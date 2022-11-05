@@ -1,47 +1,44 @@
-package tn.esprit.rh.achat.services.reglement;
+package com.esprit.examen.services;
+
+import static org.junit.Assert.*;
+import java.util.List;
+
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import com.esprit.examen.entities.Operateur;
 
 import org.junit.jupiter.api.*;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import tn.esprit.rh.achat.entities.Reglement;
-import tn.esprit.rh.achat.services.IReglementService;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-
-import java.time.LocalDate;
-import java.util.Date;
-import java.util.List;
 
 @SpringBootTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class ReglementServiceTest {
-	
-    @Autowired
-    IReglementService rs;
+public class OperateurServiceImplTest {
+	@Autowired
+	IOperateurService OperateurService;
 
+	
     @Test
     @Order(1)
-    public void testRetrieveAllUsers() {
-        List<Reglement> listReglements = rs.retrieveAllReglements();
-        Assertions.assertEquals(0, listReglements.size());
+    public void testRetrieveAllOperateurs() {
+        List<Operateur> listOperateurs = OperateurService.retrieveAllOperateurs();
+        Assertions.assertEquals(0, listOperateurs.size());
     }
     @Test
     @Order(2)
-     void testAddRegelemnt() {
-        Date date = new Date();
-        Reglement r = new Reglement((float)100,(float)111,true,date);
-    	Reglement savedStock= rs.addReglement(r);
-    assertEquals(r.getIdReglement(), savedStock.getIdReglement());
+     void testAddOperateur() {
+    	Operateur o = new Operateur("ahmed","ahmed","aaaaaa");
+    	Operateur savedStock= OperateurService.addOperateur(o);
+    assertEquals(o.getIdOperateur(), savedStock.getIdOperateur());
     }
     
     @Test
     @Order(3)
-     void testRetrieveReglement() {
-    	Reglement r = rs.retrieveReglement((long) 1);
-    assertEquals("1", r.getIdReglement().toString());
-    }
-
-
+     void testRetrieveOperateur() {
+    	Operateur o = OperateurService.retrieveOperateur((long) 1);
+    assertEquals("1", o.getIdOperateur().toString());
+}
 }
